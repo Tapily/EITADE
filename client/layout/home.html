@@ -1,0 +1,104 @@
+<template name="home">
+	<div id="wrapper">
+        <div id="page-wrapper">
+
+            <div class="container">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                           CREATE NEW EIT
+                        </h1>
+                        
+                    </div>
+					
+						<form role="form" class="form-horizontal">
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="First_Name">First_Name <span style="color:red">*</span></label>
+								<div class="col-sm-9">
+									<input type="text" value="{{First_Name}}" name="First_Name" id="First_Name" class="form-control input-sm"  >
+								</div>
+
+							</div>
+
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="Last_Name">Last_Name <span style="color:red">*</span></label>
+								<div class="col-sm-9">
+									<input type="text" value="{{Last_Name}}" name="Last_Name" id="Last_Name" class="form-control input-sm"  >
+								</div>
+								
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="Date">Date <span style="color:red">*</span></label>
+								<div class="col-sm-9">
+									<input type="date" value="{{Date}}" name="Date" id="Date" class="form-control input-sm"  >
+								</div>
+
+							</div>
+							<!--div class="form-group">
+								<label class="control-label col-sm-3" for="Gender">Gender:  <span style="color:red">*</span>
+								</label>
+								<div class="col-sm-9">
+									<input type="radio" value="{{Gender}}" id="Gender" name="Gender" checked/>Male
+									<input type="radio" value="{{Gender}}" id="Gender" name="Gender"/>Female 
+								</div>
+
+							</div-->
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="Gender">Gender <span style="color:red">*</span></label>
+								<div class="col-sm-9">
+									<input type="text" value="{{Gender}}" name="Gender" id="Gender" class="form-control input-sm"  >
+								</div>
+
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-3 col-sm-4">
+									{{#if updateTitle}}
+									<input type="submit"  value="Update" id="btnAdd" class="btn btn-primary btn-block">
+									{{else}}
+									<input type="submit"  value="Add" id="btnAdd" class="btn btn-primary btn-block">
+									{{/if}}
+								</div>
+							</div>
+							
+						</form>
+					
+
+					<h1 class="page-header">
+                           List EIT
+                        </h1>
+						<div class="table-responsive">
+
+							<table class="table table-bordered table-hover table-striped">
+								<thead>
+									<tr>
+										<th class="text-center" style="width:40%">First_Name</th>
+										<th class="text-center" style="width:40%">Last_Name</th>
+										<th class="text-center" style="width:40%">Date</th>
+										<th class="text-center" style="width:40%">Gender</th>
+										<th class="text-center" style="width:10%" colspan="2">Tools</th>
+									</tr>
+								</thead>
+								<tbody>
+								{{#each getData}}
+									<tr>
+										<td>{{First_Name}}</td>
+										<td>{{Last_Name}}</td>
+										<td>{{Date}}</td>
+										<td>{{Gender}}</td>
+										<td><a id="remove" href="#">Delete</a>|<a href="/update/{{_id}}">Edit</a></td>
+									</tr>
+								{{/each}}
+									
+								</tbody>
+							</table>
+						</div>
+					</div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+
+
+    </div>
+</template>
